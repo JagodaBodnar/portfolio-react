@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { device } from "../globalStyles/device";
 
 export const StyledProjectsList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 80%;
   margin: 0 auto;
+  @media ${device.desktop} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 export const StyledContainer = styled.div`
   padding: 1em 0;

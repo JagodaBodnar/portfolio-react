@@ -12,9 +12,27 @@ import sass from "../assets/icons/sass.svg";
 import git from "../assets/icons/git.svg";
 import vue from "../assets/icons/vue.svg";
 import "./owl-carousel.css";
+import { device } from "../globalStyles/device";
 import { StyledOwlContainer, StyledOwlWrap, StyledImg } from "./SkillsStyles";
 
 const Skills = () => {
+  const options = {
+    loop: true,
+    margin: 8,
+    autoplay: true,
+    autoplayHoverPause: true,
+    dots: false,
+    center: true,
+    responsive: {
+      0: {
+        items: 3,
+      },
+      768: {
+        items: 5,
+      },
+    },
+  };
+
   const skills = [
     html,
     css,
@@ -30,16 +48,7 @@ const Skills = () => {
   return (
     <StyledOwlContainer>
       <StyledOwlWrap>
-        <OwlCarousel
-          items={5}
-          className="owl-theme"
-          loop
-          margin={8}
-          autoplay
-          autoplayHoverPause
-          dots={false}
-          center
-        >
+        <OwlCarousel {...options} className="owl-theme">
           {skills.map((item) => {
             return <StyledImg src={item} key={item} />;
           })}

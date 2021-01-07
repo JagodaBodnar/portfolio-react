@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import { device } from "../globalStyles/device";
 export const StyledNavigationContainer = styled.div`
   position: fixed;
   width: 100%;

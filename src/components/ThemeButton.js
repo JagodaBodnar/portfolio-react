@@ -11,7 +11,7 @@ import {
 
 const ThemeButton = () => {
   const context = useContext(RootContext);
-  const { theme, toggleTheme } = context;
+  const { theme, toggleTheme, toggleMenu } = context;
 
   const [switchButton, setSwitchButton] = useState(false);
   const handleTheme = () => {
@@ -34,6 +34,7 @@ const ThemeButton = () => {
         onClick={() => {
           toggleTheme();
           handleTheme();
+          toggleMenu();
         }}
         theme={theme}
       >

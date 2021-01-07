@@ -40,12 +40,33 @@ const App = () => {
           console.log(error.text);
         }
       );
-    // setIsChecked(false);
     e.target.reset();
+  };
+  const [pathStyle, setPathStyle] = useState(false);
+  const checkPath = () => {
+    if (window.location.pathname === "/contact") {
+      setPathStyle(false);
+    } else {
+      setPathStyle(true);
+    }
+  };
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
   return (
     <BrowserRouter>
-      <RootContext.Provider value={{ theme, toggleTheme, sendQuestion }}>
+      <RootContext.Provider
+        value={{
+          theme,
+          toggleTheme,
+          sendQuestion,
+          checkPath,
+          pathStyle,
+          isMenuOpen,
+          toggleMenu,
+        }}
+      >
         <MainTemplate>
           <Router />
         </MainTemplate>

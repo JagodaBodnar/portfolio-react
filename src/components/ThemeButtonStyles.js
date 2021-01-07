@@ -40,7 +40,7 @@ export const StyledSpanLight = styled.span`
   position: absolute;
   left: 10px;
   top: 3px;
-  color: ${({ theme }) => (theme === "light" ? "#222222" : "#fefefe")};
+  color: ${({ theme }) => (theme === "light" ? "#222222" : "#676566")};
   z-index: 1;
   font-size: 13px;
   font-family: "Roboto", "Helvetica", "Arial", "sans-serif";

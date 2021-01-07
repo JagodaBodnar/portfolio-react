@@ -15,6 +15,7 @@
     "react-dom": "^16.14.0",
     "react-owl-carousel": "^2.3.1",
     "react-owl-carousel2": "^0.3.0",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-shuffle": "^2.1.0",

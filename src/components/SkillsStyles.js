@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../globalStyles/device";
 
 export const StyledOwlContainer = styled.div`
   width: 100%;

@@ -97,7 +97,7 @@ const Contact = () => {
         <StyledSectionTitleContainer>
           <StyledMediaContainer>
             <StyledMediaLink
-              href="https://www.linkedin.com/in/jagoda-bodnar-765a90a6/"
+              href="https://github.com/JagodaBodnar"
               target="_blank"
             >
               <StyledMediaImg
@@ -107,7 +107,7 @@ const Contact = () => {
                 onMouseOver={(e) => (e.currentTarget.src = github)}
                 onMouseOut={
                   theme === "light"
-                    ? (e) => (e.currentTarget.src = githubLightGray)
+                    ? (e) => (e.currentTarget.src = githubDarkGray)
                     : (e) => (e.currentTarget.src = githubLightGray)
                 }
               />
@@ -121,7 +121,7 @@ const Contact = () => {
                 onMouseOver={(e) => (e.currentTarget.src = linkedin)}
                 onMouseOut={
                   theme === "light"
-                    ? (e) => (e.currentTarget.src = linkedinLightGray)
+                    ? (e) => (e.currentTarget.src = linkedinDarkGray)
                     : (e) => (e.currentTarget.src = linkedinLightGray)
                 }
               />
@@ -136,7 +136,7 @@ const Contact = () => {
                 onMouseOver={(e) => (e.currentTarget.src = email)}
                 onMouseOut={
                   theme === "light"
-                    ? (e) => (e.currentTarget.src = emailLightGray)
+                    ? (e) => (e.currentTarget.src = emailDarkGray)
                     : (e) => (e.currentTarget.src = emailLightGray)
                 }
               />

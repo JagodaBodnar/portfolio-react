@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
+import { device } from "../globalStyles/device";
 
 export const StyledFormContainer = styled.div`
-  width: 20%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 3rem;
   position: relative;
@@ -9,6 +10,21 @@ export const StyledFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+  @media ${device.mobile} {
+    width: 60%;
+  }
+  @media ${device.tablet} {
+    width: 50%;
+  }
+  @media ${device.tablet} {
+    width: 40%;
+  }
+  @media ${device.laptop} {
+    width: 30%;
+  }
+  @media ${device.desktop} {
+    width: 20%;
+  } ;
 `;
 export const StyledFormLabel = styled.label`
   position: absolute;
