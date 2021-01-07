@@ -1,0 +1,10 @@
+.owl-item {
+  filter: grayscale(1);
+}
+.center,
+.center .label {
+  filter: grayscale(0);
+  visibility: visible;
+  top: 100% !important;
+  transition: 0.7s;
+}

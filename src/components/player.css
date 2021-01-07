@@ -1,0 +1,25 @@
+.video-react {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  margin: 5px;
+  outline: none;
+}
+
+.video-react .video-react-poster {
+  background-color: #fff;
+}
+
+.video-react .video-react-big-play-button {
+  outline: none;
+}
+
+.video-react.video-react-fluid {
+  width: auto;
+  overflow: hidden;
+}
+
+.video-react .video-react-video {
+  outline: none;
+  width: 101%;
+}
