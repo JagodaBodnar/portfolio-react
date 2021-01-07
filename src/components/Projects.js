@@ -29,7 +29,7 @@ const Projects = () => {
 
   const anim = useSpring({
     config: { duration: 500 },
-    height: showDetails ? "50px" : "0px",
+    height: showDetails ? "70px" : "0px",
     opacity: showDetails ? "1" : "0",
     overflow: "hidden",
   });
