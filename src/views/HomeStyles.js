@@ -1,6 +1,8 @@
 import styled from "styled-components";
 export const StyledSectionContainer = styled.div`
-  margin: 100px 0;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  overflow: hidden;
 `;
 export const StyledSectionTitleContainer = styled.div`
   display: flex;
