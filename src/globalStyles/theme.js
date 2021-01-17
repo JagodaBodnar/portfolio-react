@@ -6,6 +6,9 @@ export const lightTheme = {
   blue: "#0278ae",
   darkGray: "#676566",
   lightGray: "#ddd",
+  darkBackground: "#222222",
+  white: "#fff",
+  mediaIcons: "#676566",
 };
 
 export const darkTheme = {
@@ -14,6 +17,9 @@ export const darkTheme = {
   blue: "#35A8CE",
   darkGray: "#676566",
   lightGray: "#ddd",
+  darkBackground: "#222222",
+  white: "#fff",
+  mediaIcons: "#ddd",
 };
 
 export const HeaderOne = styled.h1`

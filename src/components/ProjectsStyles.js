@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { device } from "../globalStyles/device";
 
 export const StyledProjectsList = styled.ul`
@@ -24,7 +24,7 @@ export const StyledContent = styled.div`
   margin: auto;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #ddd;
+  border: ${({ theme }) => `2px solid ${theme.lightGray}`};
   border-radius: 3px;
 `;
 export const StyledHeadingTwo = styled.h2`
@@ -39,12 +39,12 @@ export const StyledTechStachContainer = styled.div`
 export const StyledLink = styled.a`
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
   text-decoration: none;
-  color: ${({ theme }) => (theme === "light" ? "#222222" : "#ddd")};
+  color: ${({ theme }) => theme.text};
   text-transform: uppercase;
   cursor: pointer;
   font-size: 15px;
   &:hover {
-    border-bottom: 2px solid #0278ae;
+    border-bottom: ${({ theme }) => `2px solid ${theme.blue}`};
   }
 `;
 export const StyledSpan = styled.span`
@@ -55,4 +55,20 @@ export const StyledShowDetails = styled.div`
   font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
   font-size: 13px;
   letter-spacing: 1px;
+`;
+
+export const StyledShowDetailsWrapper = styled.div`
+  height: 0;
+  opacity: 0;
+  transition: 0.7s;
+
+  ${({ isCollapsed }) =>
+    isCollapsed &&
+    css`
+      height: 70px;
+      opacity: 1;
+      @media ${device.mobile} {
+        height: 30px;
+      }
+    `}
 `;

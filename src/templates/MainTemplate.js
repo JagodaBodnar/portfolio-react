@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../globalStyles/globalStyles";
 import { lightTheme, darkTheme } from "../globalStyles/theme";
 import RootContext from "../context/context";

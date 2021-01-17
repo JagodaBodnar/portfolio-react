@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Router from "./routing";
 import { BrowserRouter } from "react-router-dom";
 import MainTemplate from "./templates/MainTemplate";
@@ -45,15 +45,33 @@ const App = () => {
   const [pathStyle, setPathStyle] = useState(false);
   const checkPath = () => {
     if (window.location.pathname === "/contact") {
-      setPathStyle(false);
-    } else {
       setPathStyle(true);
+    } else {
+      setPathStyle(false);
     }
+  };
+  const goToContact = () => {
+    setPathStyle(true);
+  };
+
+  const goToHome = () => {
+    setPathStyle(false);
   };
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathStyle]);
+
+  useEffect(() => {
+    checkPath();
+  }, []);
+
   return (
     <BrowserRouter>
       <RootContext.Provider
@@ -65,6 +83,8 @@ const App = () => {
           pathStyle,
           isMenuOpen,
           toggleMenu,
+          goToContact,
+          goToHome,
         }}
       >
         <MainTemplate>

@@ -36,15 +36,14 @@ const ThemeButton = () => {
           handleTheme();
           toggleMenu();
         }}
-        theme={theme}
       >
         <StyledSpanLight theme={theme}>Light</StyledSpanLight>
         <StyledSpanDark theme={theme}>Dark</StyledSpanDark>
         <animated.div style={anim}>
-          <StyledLightButton theme={theme}></StyledLightButton>
+          <StyledLightButton></StyledLightButton>
         </animated.div>
         <animated.div style={animDark}>
-          <StyledDarkButton theme={theme}></StyledDarkButton>
+          <StyledDarkButton></StyledDarkButton>
         </animated.div>
       </StyledButton>
     </>

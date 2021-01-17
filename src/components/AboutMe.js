@@ -1,10 +1,6 @@
 import React from "react";
 import { Paragraph } from "../globalStyles/theme";
-import styled from "styled-components";
-const StyledAboutMeSection = styled.div`
-  width: 60%;
-  margin: 0 auto;
-`;
+import { StyledAboutMeSection } from "./AboutMeStyles";
 
 const AboutMe = () => {
   return (

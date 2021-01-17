@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.div`
-  background-color: #ddd;
+  background-color: ${({ theme }) => theme.lightGray};
   width: 100px;
   height: 25px;
-  border: 1px solid #ddd;
+  border: ${({ theme }) => `1px solid ${theme.lightGray}`};
   border-radius: 50px;
   position: relative;
   outline: none;
@@ -15,13 +15,13 @@ export const StyledLightButton = styled.button`
   height: 25px;
   border: none;
   border-radius: 50px;
-  background-color: #fefefe;
+  background-color: ${({ theme }) => theme.body};
   position: absolute;
   left: 0;
   top: -1px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #ddd;
+  border: ${({ theme }) => `1px solid ${theme.lightGray}`};
 `;
 export const StyledDarkButton = styled.button`
   width: 50px;
@@ -33,7 +33,7 @@ export const StyledDarkButton = styled.button`
   right: 0;
   top: -1px;
   cursor: pointer;
-  border: 1px solid #ddd;
+  border: ${({ theme }) => `1px solid ${theme.lightGray}`};
   outline: none;
 `;
 export const StyledSpanLight = styled.span`

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { StyledButtonPrimary, HeaderTwo } from "../globalStyles/theme";
 import RootContext from "../context/context";
 import {
@@ -11,29 +11,47 @@ import {
   StyledTextArea,
   StyledFormButtonContainer,
   StyledMediaContainer,
-  StyledMediaImg,
   StyledMediaLink,
+  StyledMediaDesc,
+  StyledMediaDescContainer,
 } from "./ContactStyles";
-import linkedin from "../assets/icons/linkedin.svg";
-import linkedinDarkGray from "../assets/icons/linkedinDarkGray.svg";
-import linkedinLightGray from "../assets/icons/linkedinLightGray.svg";
-import github from "../assets/icons/github.svg";
-import githubDarkGray from "../assets/icons/githubDarkGray.svg";
-import githubLightGray from "../assets/icons/githubLightGray.svg";
-import email from "../assets/icons/email.svg";
-import emailLightGray from "../assets/icons/emaiLightGray.svg";
-import emailDarkGray from "../assets/icons/emaiDarkGray.svg";
+import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
+import { FaFilePdf } from "react-icons/fa";
 
 const Contact = () => {
+  const githubRef = useRef(null);
+  const linkedinRef = useRef(null);
+  const emailRef = useRef(null);
+  const cvRef = useRef(null);
+
   const context = useContext(RootContext);
   const { theme, sendQuestion } = context;
 
+  const handlegithubDesc = () => {
+    githubRef.current.style.display = "block";
+  };
+
+  const handlelinkedInDesc = () => {
+    linkedinRef.current.style.display = "block";
+  };
+  const handleemailDesc = () => {
+    emailRef.current.style.display = "block";
+  };
+  const handlecvDesc = () => {
+    cvRef.current.style.display = "block";
+  };
+  const reset = () => {
+    githubRef.current.style.display = "none";
+    linkedinRef.current.style.display = "none";
+    emailRef.current.style.display = "none";
+    cvRef.current.style.display = "none";
+  };
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
+
   const handleNameChange = (e) => {
     setNameValue(e.target.value);
-    console.log(nameValue);
   };
   const handleEmailChange = (e) => {
     setEmailValue(e.target.value);
@@ -94,55 +112,47 @@ const Contact = () => {
         </StyledFormButtonContainer>
       </form>
       <StyledSectionContainer>
-        <StyledSectionTitleContainer>
-          <StyledMediaContainer>
-            <StyledMediaLink
-              href="https://github.com/JagodaBodnar"
-              target="_blank"
-            >
-              <StyledMediaImg
-                circleIcons
-                theme={theme}
-                src={theme === "light" ? githubDarkGray : githubLightGray}
-                onMouseOver={(e) => (e.currentTarget.src = github)}
-                onMouseOut={
-                  theme === "light"
-                    ? (e) => (e.currentTarget.src = githubDarkGray)
-                    : (e) => (e.currentTarget.src = githubLightGray)
-                }
-              />
-            </StyledMediaLink>
-            <StyledMediaLink
-              href="https://www.linkedin.com/in/jagoda-bodnar-765a90a6/"
-              target="_blank"
-            >
-              <StyledMediaImg
-                src={theme === "light" ? linkedinDarkGray : linkedinLightGray}
-                onMouseOver={(e) => (e.currentTarget.src = linkedin)}
-                onMouseOut={
-                  theme === "light"
-                    ? (e) => (e.currentTarget.src = linkedinDarkGray)
-                    : (e) => (e.currentTarget.src = linkedinLightGray)
-                }
-              />
-            </StyledMediaLink>
-            <StyledMediaLink
-              href={"mailto:jagodabodnar90@gmail.com"}
-              target="_blank"
-            >
-              <StyledMediaImg
-                circleIcons
-                src={theme === "light" ? emailDarkGray : emailLightGray}
-                onMouseOver={(e) => (e.currentTarget.src = email)}
-                onMouseOut={
-                  theme === "light"
-                    ? (e) => (e.currentTarget.src = emailDarkGray)
-                    : (e) => (e.currentTarget.src = emailLightGray)
-                }
-              />
-            </StyledMediaLink>
-          </StyledMediaContainer>
-        </StyledSectionTitleContainer>
+        <StyledMediaContainer>
+          <StyledMediaLink
+            href="https://github.com/JagodaBodnar"
+            target="_blank"
+            onMouseEnter={handlegithubDesc}
+            onMouseLeave={reset}
+          >
+            <SiGithub />
+          </StyledMediaLink>
+          <StyledMediaLink
+            href="https://www.linkedin.com/in/jagoda-bodnar-765a90a6/"
+            target="_blank"
+            onMouseEnter={handlelinkedInDesc}
+            onMouseLeave={reset}
+          >
+            <SiLinkedin />
+          </StyledMediaLink>
+          <StyledMediaLink
+            href={"mailto:jagodabodnar90@gmail.com"}
+            target="_blank"
+            onMouseEnter={handleemailDesc}
+            onMouseLeave={reset}
+          >
+            <SiGmail />
+          </StyledMediaLink>
+          <StyledMediaLink onMouseEnter={handlecvDesc} onMouseLeave={reset}>
+            <FaFilePdf />
+          </StyledMediaLink>
+        </StyledMediaContainer>
+        <StyledMediaDescContainer>
+          <StyledMediaDesc ref={githubRef}>
+            github.com/jagodabodnar
+          </StyledMediaDesc>
+          <StyledMediaDesc ref={linkedinRef}>
+            linkedin.com/in/jagoda-bodnar
+          </StyledMediaDesc>
+          <StyledMediaDesc ref={emailRef}>
+            jagodabodnar90@gmail.com
+          </StyledMediaDesc>
+          <StyledMediaDesc ref={cvRef}>download my resume</StyledMediaDesc>
+        </StyledMediaDescContainer>
       </StyledSectionContainer>
     </>
   );

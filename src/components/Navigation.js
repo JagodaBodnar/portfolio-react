@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { HeaderOne } from "../globalStyles/theme";
-import RootContext from "../context/context";
 import {
   StyledNavigationContainer,
   StyledNavigationWrap,
@@ -8,19 +7,16 @@ import {
 } from "./NavigationStyles";
 import NavigationLinks from "./NavigationLinks";
 import MobileNavigation from "./MobileNavigation";
-import { device } from "../globalStyles/device";
 import { useMediaQuery } from "react-responsive";
 
 const Navigation = () => {
-  const context = useContext(RootContext);
-  const { theme } = context;
   const isTabletOrMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
 
   return (
     <>
-      <StyledNavigationContainer theme={theme}>
+      <StyledNavigationContainer>
         <StyledNavigationWrap>
           <StyledNavigationLogo>
             <HeaderOne logo>Jagoda</HeaderOne>

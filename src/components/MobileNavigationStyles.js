@@ -25,11 +25,11 @@ export const StyledNavigationLinks = styled(Link)`
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #fff;
+  color: ${({ theme }) => theme.white};
   display: block;
   transition: 0.3s;
   &:hover {
-    color: #0278ae;
+    color: ${({ theme }) => theme.blue};
   }
 `;
 
@@ -52,7 +52,7 @@ export const StyledSpan = styled.span`
   margin-bottom: 5px;
   position: relative;
   background: ${({ isMenuOpen, theme }) =>
-    isMenuOpen ? "#0278ae" : theme === "light" ? "#676566" : "#E1DEE2"};
+    isMenuOpen ? theme.blue : theme === "light" ? theme.darkGray : theme.text};
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;

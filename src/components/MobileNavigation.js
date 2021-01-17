@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import RootContext from "../context/context";
 import { routes } from "../routes/index";
 import ThemeButton from "./ThemeButton";
@@ -14,14 +14,14 @@ import {
 
 const MobileNavigation = () => {
   const context = useContext(RootContext);
-  const { theme, checkPath, pathStyle, isMenuOpen, toggleMenu } = context;
+  const { checkPath, isMenuOpen, toggleMenu } = context;
 
   return (
     <StyledNavigationContent>
       <StyledHamburger onClick={toggleMenu} isMenuOpen={isMenuOpen}>
-        <StyledSpan isMenuOpen={isMenuOpen} theme={theme}></StyledSpan>
-        <StyledSpan isMenuOpen={isMenuOpen} theme={theme}></StyledSpan>
-        <StyledSpan isMenuOpen={isMenuOpen} theme={theme}></StyledSpan>
+        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
+        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
+        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
       </StyledHamburger>
       <StyledNavigationOverlay isMenuOpen={isMenuOpen}>
         <StyledNavigationList>
@@ -31,7 +31,6 @@ const MobileNavigation = () => {
               checkPath();
               toggleMenu();
             }}
-            pathstyle={pathStyle}
           >
             Home
           </StyledNavigationLinks>
@@ -41,7 +40,6 @@ const MobileNavigation = () => {
               checkPath();
               toggleMenu();
             }}
-            pathstyle={pathStyle}
           >
             Contact
           </StyledNavigationLinks>

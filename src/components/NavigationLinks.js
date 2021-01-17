@@ -4,29 +4,32 @@ import ThemeButton from "./ThemeButton";
 import {
   StyledNavigationHomeLink,
   StyledNavigationContactLink,
+  StyledNavigationHomeButton,
 } from "./NavigationStyles";
 import RootContext from "../context/context";
 
 const NavigationLinks = () => {
   const context = useContext(RootContext);
-  const { pathStyle, checkPath } = context;
+  const { pathStyle, goToContact, goToHome } = context;
 
   return (
     <>
-      <StyledNavigationHomeLink
-        to={{ pathname: routes.home }}
-        onClick={checkPath}
-        pathstyle={pathStyle}
-      >
-        Home
-      </StyledNavigationHomeLink>
-      <StyledNavigationContactLink
-        to={{ pathname: routes.contact }}
-        onClick={checkPath}
-        pathstyle={pathStyle}
-      >
-        Contact
-      </StyledNavigationContactLink>
+      <StyledNavigationHomeButton onClick={goToHome} pathstyle={pathStyle}>
+        <StyledNavigationHomeLink
+          to={{ pathname: routes.home }}
+          pathstyle={JSON.stringify(pathStyle)}
+        >
+          Home
+        </StyledNavigationHomeLink>
+      </StyledNavigationHomeButton>
+      <StyledNavigationHomeButton onClick={goToContact} pathstyle={pathStyle}>
+        <StyledNavigationContactLink
+          to={{ pathname: routes.contact }}
+          pathstyle={JSON.stringify(pathStyle)}
+        >
+          Contact
+        </StyledNavigationContactLink>
+      </StyledNavigationHomeButton>
       <ThemeButton />
     </>
   );

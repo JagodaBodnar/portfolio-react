@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { device } from "../globalStyles/device";
 
 export const StyledOwlContainer = styled.div`
   width: 100%;
-  background-color: #222222;
+  background-color: ${({ theme }) => theme.darkBackground};
   height: 100px;
   display: flex;
   justify-content: center;
@@ -16,5 +15,27 @@ export const StyledOwlWrap = styled.div`
 export const StyledImg = styled.img`
   height: 50px;
   width: 100%;
-  filter: #ddd;
+  filter: ${({ theme }) => theme.lightGray};
+`;
+
+export const StyledSkillsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const StyledSkillsInnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+
+export const StyledSkillsParagraph = styled.p`
+  position: absolute;
+  color: ${({ theme }) => theme.text};
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  top: 130%;
+  opacity: 0;
 `;

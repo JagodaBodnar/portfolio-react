@@ -14,9 +14,6 @@ export const StyledFormContainer = styled.div`
     width: 60%;
   }
   @media ${device.tablet} {
-    width: 50%;
-  }
-  @media ${device.tablet} {
     width: 40%;
   }
   @media ${device.laptop} {
@@ -51,8 +48,8 @@ export const StyledFormInput = styled.input`
   background-color: transparent;
   color: ${({ theme }) => theme.text};
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
-  border-bottom: ${({ value }) =>
-    value === "" ? "2px solid #ddd" : "2px solid #0278ae"};
+  border-bottom: ${({ value, theme }) =>
+    value === "" ? `2px solid ${theme.lightGray}` : `2px solid ${theme.blue}`};
   transition: 0.5s ease-in;
   &:focus ~ ${StyledFormLabel} {
     transition: 0.7s ease-in-out;
@@ -61,7 +58,7 @@ export const StyledFormInput = styled.input`
     color: ${({ theme }) => theme.text};
   }
   &:focus {
-    border-bottom: 2px solid #0278ae;
+    border-bottom: ${({ theme }) => `2px solid ${theme.blue}`};
   }
 `;
 export const StyledTextArea = styled.textarea`
@@ -72,8 +69,8 @@ export const StyledTextArea = styled.textarea`
   background-color: transparent;
   color: ${({ theme }) => theme.text};
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
-  border-bottom: ${({ value }) =>
-    value === "" ? "2px solid #ddd" : "2px solid #0278ae"};
+  border-bottom: ${({ value, theme }) =>
+    value === "" ? `2px solid ${theme.lightGray}` : `2px solid ${theme.blue}`};
   transition: 0.5s ease-in;
   height: ${({ value }) => (value === "" ? "45px" : "150px")};
   &:focus ~ ${StyledFormLabel} {
@@ -130,7 +127,27 @@ export const StyledMediaImg = styled.img`
       height: 37px;
     `};
 `;
-
+export const StyledMediaDesc = styled.p`
+  display: none;
+  font-size: 12px;
+  color: ${({ theme }) => theme.blue};
+`;
 export const StyledMediaLink = styled.a`
   text-decoration: none;
+  color: ${({ theme }) => theme.mediaIcons};
+  font-size: 35px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 0.7s;
+  &:hover {
+    color: ${({ theme }) => theme.blue};
+  }
+`;
+
+export const StyledMediaDescContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
 `;

@@ -10,10 +10,17 @@ import redux from "../assets/icons/redux.svg";
 import javascript from "../assets/icons/js.svg";
 import sass from "../assets/icons/sass.svg";
 import git from "../assets/icons/git.svg";
-import vue from "../assets/icons/vue.svg";
+// import vue from "../assets/icons/vue.svg";
+import npm from "../assets/icons/npm.svg";
+import slack from "../assets/icons/slack.svg";
 import "./owl-carousel.css";
-import { device } from "../globalStyles/device";
-import { StyledOwlContainer, StyledOwlWrap, StyledImg } from "./SkillsStyles";
+import {
+  StyledOwlContainer,
+  StyledOwlWrap,
+  StyledImg,
+  StyledSkillsParagraph,
+  StyledSkillsInnerContainer,
+} from "./SkillsStyles";
 
 const Skills = () => {
   const options = {
@@ -34,15 +41,17 @@ const Skills = () => {
   };
 
   const skills = [
-    html,
-    css,
-    javascript,
-    git,
-    react,
-    redux,
-    firebase,
-    sass,
-    vue,
+    { skill: html, desc: "html" },
+    { skill: css, desc: "css" },
+    { skill: javascript, desc: "javascript" },
+    { skill: git, desc: "git" },
+    { skill: react, desc: "react" },
+    { skill: redux, desc: "redux" },
+    { skill: firebase, desc: "firebase" },
+    { skill: sass, desc: "sass" },
+    { skill: npm, desc: "npm" },
+    { skill: slack, desc: "slack" },
+    // { skill: vue, desc: "vue" },
   ];
 
   return (
@@ -50,7 +59,14 @@ const Skills = () => {
       <StyledOwlWrap>
         <OwlCarousel {...options} className="owl-theme">
           {skills.map((item) => {
-            return <StyledImg src={item} key={item} />;
+            return (
+              <StyledSkillsInnerContainer key={item.skill}>
+                <StyledImg src={item.skill} />
+                <StyledSkillsParagraph className="skill-description">
+                  {item.desc}
+                </StyledSkillsParagraph>
+              </StyledSkillsInnerContainer>
+            );
           })}
         </OwlCarousel>
       </StyledOwlWrap>

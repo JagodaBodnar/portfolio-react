@@ -1,59 +1,38 @@
-import React, { useState, useContext } from "react";
-import styled from "styled-components";
-import jewelryShopReact from "../assets/icons/shop-react.png";
-import { useSpring, animated, useTransition } from "react-spring";
+import React, { useState } from "react";
 import "../../node_modules/video-react/dist/video-react.css";
 import reactweb from "../assets/videos/reactweb.mp4";
 import { Player } from "video-react";
-import RootContext from "../context/context";
-import "./player.css";
-// import jewelryShopRedux from "../assets/icons/jewelry-shop-redux.PNG";
+
 import {
   StyledProjectsList,
   StyledContainer,
   StyledDetails,
   StyledContent,
-  StyledImages,
-  StyledImgContainer,
   StyledHeadingTwo,
   StyledTechStachContainer,
   StyledLink,
   StyledSpan,
   StyledShowDetails,
+  StyledShowDetailsWrapper,
 } from "./ProjectsStyles";
+import { projects } from "../data/projectsList";
 
 const Projects = () => {
-  const context = useContext(RootContext);
-  const { theme } = context;
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
 
-  const anim = useSpring({
-    config: { duration: 500 },
-    height: showDetails ? "70px" : "0px",
-    opacity: showDetails ? "1" : "0",
-    overflow: "hidden",
-  });
+  const [projectsList, setProjectsList] = useState(projects);
 
-  const projects = [
-    {
-      title: `Jewelry shop - React`,
-      id: 2,
-      img: jewelryShopReact,
-      demoUrl: `https://reverent-booth-2fd4f6.netlify.app/`,
-      codeUrl: `https://github.com/JagodaBodnar/Jewelry_shop_redux`,
-      titleOverlay: `Tech stack:`,
-      descOverlay: `React • React Router • React-spring • Styled-components • RWD • Contentful • EmailJS • Material-UI`,
-    },
-    {
-      title: `Jewelry shop - Redux`,
-      id: 1,
-      img: jewelryShopReact,
-      demoUrl: `https://reverent-booth-2fd4f6.netlify.app/`,
-      codeUrl: `https://github.com/JagodaBodnar/Jewelry_shop_redux`,
-      titleOverlay: `Tech stack:`,
-      descOverlay: `React • React Router • React-spring • Redux • Styled-components • RWD • Contentful • EmailJS `,
-    },
-  ];
+  const showDetails = (e) => {
+    const toggleDetails = projectsList.map((item) => {
+      const elementId = e.target.getAttribute("id");
+      if (item.id === JSON.parse(elementId)) {
+        item.desc = !item.desc;
+      }
+      return item;
+    });
+    setProjectsList(toggleDetails);
+  };
+
   return (
     <>
       <StyledProjectsList>
@@ -65,27 +44,26 @@ const Projects = () => {
               </StyledContent>
               <StyledTechStachContainer>
                 <StyledDetails>
-                  <StyledLink href={item.demoUrl} theme={theme} target="_blank">
+                  <StyledLink href={item.demoUrl} target="_blank">
                     demo
                   </StyledLink>
                   <StyledSpan>|</StyledSpan>
-                  <StyledLink href={item.codeUrl} theme={theme} target="_blank">
+                  <StyledLink href={item.codeUrl} target="_blank">
                     code
                   </StyledLink>
                   <StyledSpan>|</StyledSpan>
-
                   <StyledLink
-                    key={item.name}
-                    theme={theme}
-                    onClick={() => {
-                      setShowDetails(!showDetails);
+                    id={item.id}
+                    onClick={(e) => {
+                      showDetails(e);
+                      setShowDetail(!showDetail);
                     }}
                   >
                     tech stach
                   </StyledLink>
-                  <animated.div style={anim}>
+                  <StyledShowDetailsWrapper isCollapsed={item.desc}>
                     <StyledShowDetails>{item.descOverlay}</StyledShowDetails>
-                  </animated.div>
+                  </StyledShowDetailsWrapper>
                 </StyledDetails>
                 <StyledHeadingTwo>{item.title}</StyledHeadingTwo>
               </StyledTechStachContainer>
