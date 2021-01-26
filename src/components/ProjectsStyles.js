@@ -61,7 +61,6 @@ export const StyledShowDetailsWrapper = styled.div`
   height: 0;
   opacity: 0;
   transition: 0.7s;
-
   ${({ isCollapsed }) =>
     isCollapsed &&
     css`

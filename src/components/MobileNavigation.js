@@ -19,9 +19,9 @@ const MobileNavigation = () => {
   return (
     <StyledNavigationContent>
       <StyledHamburger onClick={toggleMenu} isMenuOpen={isMenuOpen}>
-        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
-        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
-        <StyledSpan isMenuOpen={isMenuOpen}></StyledSpan>
+        <StyledSpan isMenuOpen={isMenuOpen} />
+        <StyledSpan isMenuOpen={isMenuOpen} />
+        <StyledSpan isMenuOpen={isMenuOpen} />
       </StyledHamburger>
       <StyledNavigationOverlay isMenuOpen={isMenuOpen}>
         <StyledNavigationList>

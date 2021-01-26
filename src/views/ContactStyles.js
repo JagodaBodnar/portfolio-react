@@ -66,6 +66,7 @@ export const StyledTextArea = styled.textarea`
   border: none;
   outline: none;
   cursor: text;
+  resize: none;
   background-color: transparent;
   color: ${({ theme }) => theme.text};
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";

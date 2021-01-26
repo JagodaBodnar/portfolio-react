@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../node_modules/video-react/dist/video-react.css";
 import reactweb from "../assets/videos/reactweb.mp4";
 import { Player } from "video-react";
-
 import {
   StyledProjectsList,
   StyledContainer,
@@ -15,18 +14,19 @@ import {
   StyledShowDetails,
   StyledShowDetailsWrapper,
 } from "./ProjectsStyles";
+import "./player.css";
 import { projects } from "../data/projectsList";
 
 const Projects = () => {
-  const [showDetail, setShowDetail] = useState(false);
-
   const [projectsList, setProjectsList] = useState(projects);
 
   const showDetails = (e) => {
     const toggleDetails = projectsList.map((item) => {
       const elementId = e.target.getAttribute("id");
+      console.log(item.desc);
       if (item.id === JSON.parse(elementId)) {
         item.desc = !item.desc;
+        console.log(item.desc);
       }
       return item;
     });
@@ -36,36 +36,36 @@ const Projects = () => {
   return (
     <>
       <StyledProjectsList>
-        {projects.map((item) => {
+        {projectsList.map((item) => {
+          const { title, img, demoUrl, codeUrl, id, desc, descOverlay } = item;
           return (
-            <StyledContainer key={item.title}>
+            <StyledContainer key={title}>
               <StyledContent>
-                <Player playsInline poster={item.img} src={reactweb} />
+                <Player playsInline poster={img} src={reactweb} />
               </StyledContent>
               <StyledTechStachContainer>
                 <StyledDetails>
-                  <StyledLink href={item.demoUrl} target="_blank">
+                  <StyledLink href={demoUrl} target="_blank">
                     demo
                   </StyledLink>
                   <StyledSpan>|</StyledSpan>
-                  <StyledLink href={item.codeUrl} target="_blank">
+                  <StyledLink href={codeUrl} target="_blank">
                     code
                   </StyledLink>
                   <StyledSpan>|</StyledSpan>
                   <StyledLink
-                    id={item.id}
+                    id={id}
                     onClick={(e) => {
                       showDetails(e);
-                      setShowDetail(!showDetail);
                     }}
                   >
                     tech stach
                   </StyledLink>
-                  <StyledShowDetailsWrapper isCollapsed={item.desc}>
-                    <StyledShowDetails>{item.descOverlay}</StyledShowDetails>
+                  <StyledShowDetailsWrapper isCollapsed={desc}>
+                    <StyledShowDetails>{descOverlay}</StyledShowDetails>
                   </StyledShowDetailsWrapper>
                 </StyledDetails>
-                <StyledHeadingTwo>{item.title}</StyledHeadingTwo>
+                <StyledHeadingTwo>{title}</StyledHeadingTwo>
               </StyledTechStachContainer>
             </StyledContainer>
           );
