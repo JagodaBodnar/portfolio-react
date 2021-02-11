@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../node_modules/video-react/dist/video-react.css";
-import reactweb from "../assets/videos/reactweb.mp4";
 import { Player } from "video-react";
 import {
   StyledProjectsList,
@@ -37,11 +36,20 @@ const Projects = () => {
     <>
       <StyledProjectsList>
         {projectsList.map((item) => {
-          const { title, img, demoUrl, codeUrl, id, desc, descOverlay } = item;
+          const {
+            title,
+            img,
+            demoUrl,
+            codeUrl,
+            id,
+            desc,
+            descOverlay,
+            video,
+          } = item;
           return (
             <StyledContainer key={title}>
               <StyledContent>
-                <Player playsInline poster={img} src={reactweb} />
+                <Player playsInline poster={img} src={video} />
               </StyledContent>
               <StyledTechStachContainer>
                 <StyledDetails>
