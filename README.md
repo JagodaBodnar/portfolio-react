@@ -7,7 +7,7 @@ To display skills [Owl Carousel](https://www.npmjs.com/package/react-owl-carouse
 
 ### Demo
 
-[Visualisation of the website](https://hopeful-lumiere-a6ae81.netlify.app)
+[Visualisation of the website](https://keen-feynman-6ce9b0.netlify.app/)
 
 ### Application features
 
