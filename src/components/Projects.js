@@ -67,7 +67,7 @@ const Projects = () => {
                       showDetails(e);
                     }}
                   >
-                    tech stach
+                    tech stack
                   </StyledLink>
                   <StyledShowDetailsWrapper isCollapsed={desc}>
                     <StyledShowDetails>{descOverlay}</StyledShowDetails>
