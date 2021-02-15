@@ -17,6 +17,7 @@ import {
 } from "./ContactStyles";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { FaFilePdf } from "react-icons/fa";
+import resume from "../assets/resume/CV Jagoda Bodnar.pdf";
 
 const Contact = () => {
   const githubRef = useRef(null);
@@ -137,7 +138,12 @@ const Contact = () => {
           >
             <SiGmail />
           </StyledMediaLink>
-          <StyledMediaLink onMouseEnter={handlecvDesc} onMouseLeave={reset}>
+          <StyledMediaLink
+            onMouseEnter={handlecvDesc}
+            onMouseLeave={reset}
+            href={resume}
+            target="_blank"
+          >
             <FaFilePdf />
           </StyledMediaLink>
         </StyledMediaContainer>
