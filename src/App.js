@@ -9,6 +9,13 @@ const App = () => {
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
+  const [sent, setSent] = useState(false);
+  const sendInformation = () => {
+    setSent(true);
+    setTimeout(() => {
+      setSent(false);
+    }, 3000);
+  };
 
   let themeStoredInLocalStorage = localStorage.getItem("theme");
   const storeThemeInLocalStorage = (theme) => {
@@ -44,6 +51,7 @@ const App = () => {
           console.log(error.text);
         }
       );
+    sendInformation();
     setNameValue("");
     setEmailValue("");
     setMessageValue("");
@@ -97,6 +105,7 @@ const App = () => {
           setEmailValue,
           messageValue,
           setMessageValue,
+          sent,
         }}
       >
         <MainTemplate>

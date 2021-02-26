@@ -14,6 +14,7 @@ import {
   StyledMediaLink,
   StyledMediaDesc,
   StyledMediaDescContainer,
+  StyledSendInformation,
 } from "./ContactStyles";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { FaFilePdf } from "react-icons/fa";
@@ -35,6 +36,7 @@ const Contact = () => {
     nameValue,
     emailValue,
     messageValue,
+    sent,
   } = context;
 
   const handlegithubDesc = () => {
@@ -75,6 +77,13 @@ const Contact = () => {
           <HeaderTwo>Contact form</HeaderTwo>
         </StyledSectionTitleContainer>
       </StyledSectionContainer>
+      {sent ? (
+        <StyledSendInformation>
+          Your message has been sent.
+        </StyledSendInformation>
+      ) : (
+        ""
+      )}
       <form onSubmit={sendQuestion}>
         <StyledFormContainer>
           <StyledFormInput

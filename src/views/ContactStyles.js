@@ -152,3 +152,10 @@ export const StyledMediaDescContainer = styled.div`
   width: 60%;
   margin: 0 auto;
 `;
+
+export const StyledSendInformation = styled.div`
+  width: 60%;
+  margin: 30px auto;
+  text-align: center;
+  color: ${({ theme }) => theme.blue};
+`;
