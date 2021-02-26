@@ -26,7 +26,16 @@ const Contact = () => {
   const cvRef = useRef(null);
 
   const context = useContext(RootContext);
-  const { theme, sendQuestion } = context;
+  const {
+    theme,
+    sendQuestion,
+    setNameValue,
+    setEmailValue,
+    setMessageValue,
+    nameValue,
+    emailValue,
+    messageValue,
+  } = context;
 
   const handlegithubDesc = () => {
     githubRef.current.style.display = "block";
@@ -47,9 +56,6 @@ const Contact = () => {
     emailRef.current.style.display = "none";
     cvRef.current.style.display = "none";
   };
-  const [nameValue, setNameValue] = useState("");
-  const [emailValue, setEmailValue] = useState("");
-  const [messageValue, setMessageValue] = useState("");
 
   const handleNameChange = (e) => {
     setNameValue(e.target.value);

@@ -6,6 +6,10 @@ import RootContext from "./context/context";
 import emailjs from "emailjs-com";
 
 const App = () => {
+  const [nameValue, setNameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [messageValue, setMessageValue] = useState("");
+
   let themeStoredInLocalStorage = localStorage.getItem("theme");
   const storeThemeInLocalStorage = (theme) => {
     localStorage.setItem("theme", theme);
@@ -40,7 +44,9 @@ const App = () => {
           console.log(error.text);
         }
       );
-    e.target.reset();
+    setNameValue("");
+    setEmailValue("");
+    setMessageValue("");
   };
   const [pathStyle, setPathStyle] = useState(false);
   const checkPath = () => {
@@ -85,6 +91,12 @@ const App = () => {
           toggleMenu,
           goToContact,
           goToHome,
+          nameValue,
+          setNameValue,
+          emailValue,
+          setEmailValue,
+          messageValue,
+          setMessageValue,
         }}
       >
         <MainTemplate>
