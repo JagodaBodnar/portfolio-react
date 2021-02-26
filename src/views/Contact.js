@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { StyledButtonPrimary, HeaderTwo } from "../globalStyles/theme";
 import RootContext from "../context/context";
 import {
@@ -82,7 +82,7 @@ const Contact = () => {
           Your message has been sent.
         </StyledSendInformation>
       ) : (
-        ""
+        <StyledSendInformation></StyledSendInformation>
       )}
       <form onSubmit={sendQuestion}>
         <StyledFormContainer>

@@ -155,7 +155,8 @@ export const StyledMediaDescContainer = styled.div`
 
 export const StyledSendInformation = styled.div`
   width: 60%;
-  margin: 30px auto;
+  min-height: 30px;
+  margin: 20px auto;
   text-align: center;
   color: ${({ theme }) => theme.blue};
 `;
