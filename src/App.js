@@ -38,10 +38,10 @@ const App = () => {
 
     emailjs
       .sendForm(
-        "service_plarh0j",
-        "template_7bbl3dd",
+        `${process.env.REACT_APP_SERVICE_ID}`,
+        `${process.env.REACT_APP_TEMPLATE_ID}`,
         e.target,
-        "user_oRqOU5S9CjVoFm0t7S0mI"
+        `${process.env.REACT_APP_USER_ID}`
       )
       .then(
         (result) => {
