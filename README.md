@@ -2,7 +2,7 @@
 
 Application was created with [create-react-app](https://github.com/facebook/create-react-app) for recruitment process.<br />
 App has been built using React Hooks and styled using [styled-components](https://styled-components.com/).<br />
-Contact from is handeled by [EmailJS](https://www.emailjs.com/).
+Contact form is handeled by [EmailJS](https://www.emailjs.com/).
 To display skills [Owl Carousel](https://www.npmjs.com/package/react-owl-carousel) has been implemented.
 
 ### Demo
