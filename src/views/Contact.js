@@ -18,7 +18,7 @@ import {
 } from "./ContactStyles";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { FaFilePdf } from "react-icons/fa";
-import resume from "../assets/resume/CV Jagoda Bodnar.pdf";
+import resume from "../assets/resume/CV.pdf";
 
 const Contact = () => {
   const githubRef = useRef(null);
