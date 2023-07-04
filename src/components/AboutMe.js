@@ -1,20 +1,19 @@
 import React from "react";
-import { Paragraph } from "../globalStyles/theme";
-import { StyledAboutMeSection } from "./AboutMeStyles";
+import {Paragraph} from "../globalStyles/theme";
+import {StyledAboutMeSection} from "./AboutMeStyles";
 
 const AboutMe = () => {
-  return (
-    <StyledAboutMeSection>
-      <Paragraph>
-        I started programming around 1.5 years ago. I deepen my knowledge under
-        the watchful eye of experienced developer. In May 2020 I decided to
-        focus on specific framework that is React. Since then I started to
-        create more advanced projects that allowed me to progress and
-        consolidate my skills. Currently I am looking for commercial projects
-        thanks to which I could get experience.
-      </Paragraph>
-    </StyledAboutMeSection>
-  );
+    return (
+        <StyledAboutMeSection>
+            <Paragraph>
+                I graduated chemistry however my life choices brought me to Sweden.
+                I decided to change my career path and started to learn programming.
+                I have worked for over a year for Polish company using Angular framework, however my programming
+                adventure I started with React.
+                Currently looking for place where I could use my skills to build commercial applications.
+            </Paragraph>
+        </StyledAboutMeSection>
+    );
 };
 
 export default AboutMe;
